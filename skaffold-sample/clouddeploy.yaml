@@ -1,0 +1,31 @@
+apiVersion: deploy.cloud.google.com/v1
+kind: DeliveryPipeline
+metadata:
+  name: skaffold-demo
+description: skaffold-demo
+serialPipeline:
+  stages:
+  - targetId: sinjoongk-gke-us-central1
+    profiles: # in Skaffold.yaml
+    - sinjoongk-gke-us-central1
+  - targetId: sinjoongk-gke-asia-northeast3
+    profiles: # in Skaffold.yaml
+    - sinjoongk-gke-asia-northeast3
+
+---
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: sinjoongk-gke-us-central1
+description: sinjoongk-gke-us-central1
+gke:
+  cluster: projects/dm-project-391900/locations/us-central1/clusters/sinjoongk-gke-us-central1
+
+---
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: sinjoongk-gke-asia-northeast3
+description: sinjoongk-gke-asia-northeast3
+gke:
+  cluster: projects/dm-project-391900/locations/asia-northeast3/clusters/sinjoongk-gke-asia-northeast3

@@ -1,0 +1,33 @@
+apiVersion: skaffold/v4beta7
+kind: Config
+metadata:
+  name: skaffold-sample
+build:
+# Uncomment if you're using minikube for local dev and don't want to push to Artifact Registry
+  # local:
+  #   push: false
+  googleCloudBuild:
+    projectId: dm-project-391900
+    dockerImage: gcr.io/cloud-builders/docker
+  artifacts:
+    - image: flask-sample
+      context: app
+      docker:
+        dockerfile: Dockerfile
+  # TODO
+  # tagPolicy:
+manifests:
+  kustomize:
+    paths:
+      - k8s/base
+profiles:
+  - name: sinjoongk-gke-asia-northeast3
+    manifests:
+      kustomize:
+        paths:
+          - k8s/overlays/sinjoongk-gke-asia-northeast3
+  - name: sinjoongk-gke-us-central1
+    manifests:
+      kustomize:
+        paths:
+          - k8s/overlays/sinjoongk-gke-us-central1
