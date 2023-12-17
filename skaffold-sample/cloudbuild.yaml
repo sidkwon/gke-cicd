@@ -22,7 +22,8 @@ steps:
         "--delivery-pipeline", "skaffold-demo",
         "--region", "us-central1",
         "--annotations", "commitId=${REVISION_ID}",
-        "--images", "flask-sample=us-central1-docker.pkg.dev/$PROJECT_ID/k8s-skaffold/flask-sample:${COMMIT_SHA}"
+        "--images", "flask-sample=us-central1-docker.pkg.dev/$PROJECT_ID/k8s-skaffold/flask-sample:${COMMIT_SHA}",
+        "--skaffold-file", "skaffold-sample/skaffold.yaml"
       ]
 images:
 - us-central1-docker.pkg.dev/$PROJECT_ID/k8s-skaffold/flask-sample:${COMMIT_SHA}
