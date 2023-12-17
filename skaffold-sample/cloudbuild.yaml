@@ -4,7 +4,7 @@ steps:
   # Build and tag using commit sha
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '.', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/k8s-skaffold/flask-sample:${COMMIT_SHA}', '-f', 'Dockerfile']
-    dir: 'skaffold-demo/app'
+    dir: 'skaffold-sample/app'
   # # Run api tests
   # - name: 'us-central1-docker.pkg.dev/$PROJECT_ID/pop-stats/pop-stats:${COMMIT_SHA}'
   #   entrypoint: python
