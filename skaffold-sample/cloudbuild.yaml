@@ -19,7 +19,7 @@ steps:
     args: 
       [
         "deploy", "releases", "create", "rel-${SHORT_SHA}",
-        "--delivery-pipeline", "pop-stats-pipeline",
+        "--delivery-pipeline", "skaffold-demo",
         "--region", "us-central1",
         "--annotations", "commitId=${REVISION_ID}",
         "--images", "flask-sample=us-central1-docker.pkg.dev/$PROJECT_ID/k8s-skaffold/flask-sample:${COMMIT_SHA}"
