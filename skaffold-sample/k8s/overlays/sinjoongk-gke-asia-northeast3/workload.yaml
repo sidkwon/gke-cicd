@@ -4,3 +4,4 @@ metadata:
   name: flask-deployment
   labels:
     region: asia-northeast3
+    purpose: demo
